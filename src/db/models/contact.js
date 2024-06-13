@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema } from 'mongoose';
 
 const contactsShema = new Schema(
     {
@@ -24,13 +24,16 @@ const contactsShema = new Schema(
             required: true,
             default: 'personal',
         },
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: 'users',
+            required: true,
+        },
     },
     {
         timestamps: true,
         versionKey: false,
-    }
+    },
 );
 
 export const Contact = model('contacts', contactsShema);
-
-

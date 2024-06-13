@@ -1,5 +1,5 @@
 import { SORT_ORDER } from '../constants/index.js';
-import { Contact } from '../db/contact.js';
+import { Contact } from '../db/models/contact.js';
 import { calculatePaginationData } from '../utils/calculatePaginationData.js';
 
 export const getAllContacts = async ({
@@ -8,11 +8,12 @@ export const getAllContacts = async ({
     sortOrder = SORT_ORDER.ASC,
     sortBy = '_id',
     filter = {},
+    userId,
 }) => {
     const limit = perPage;
     const skip = (page - 1) * perPage;
 
-    const contactsQuery = Contact.find();
+    const contactsQuery = Contact.find({ userId });
 
     if (filter.type) {
         contactsQuery.where({
@@ -39,13 +40,13 @@ export const getAllContacts = async ({
     };
 };
 
-export const getContactById = async (contactId) => {
-    const contact = await Contact.findById(contactId);
+export const getContactById = async (contactId, userId) => {
+    const contact = await Contact.findOne({ _id: contactId, userId });
     return contact;
 };
 
-export const createContact = async (payload) => {
-    const contact = await Contact.create(payload);
+export const createContact = async (payload, userId) => {
+    const contact = await Contact.create({ ...payload, userId });
     return contact;
 };
 
