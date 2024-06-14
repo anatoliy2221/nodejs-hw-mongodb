@@ -17,7 +17,7 @@ const router = Router();
 router.use(authenticate);
 router.use('/:contactId', checkUserId);
 
-router.get('/', checkUserId, ctrlWrapper(getContactsController));
+router.get('/', ctrlWrapper(getContactsController));
 
 router.get('/:contactId', ctrlWrapper(getContactByIdController));
 
