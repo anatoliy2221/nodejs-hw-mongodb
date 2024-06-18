@@ -23,14 +23,6 @@ export const setupServer = () => {
 
     app.use(cookieParser());
 
-
-    // app.use(
-    //     express.json({
-    //         type: ['application/json', 'multipart/form-data', 'application/vnd.api+json'],
-    //         limit: '300kb',
-    //     }),
-    // );
-
     app.use(cors());
 
     app.use(
