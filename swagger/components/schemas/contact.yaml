@@ -1,0 +1,46 @@
+type: object
+required:
+  - name
+  - phoneNumber
+properties:
+  _id:
+    description: 'Backend-generated unique identifier.'
+    type: string
+    example: 664e02d7cc30cf2b0f95fa42
+  name:
+    description: "Contact's name"
+    type: string
+    example: 'Maria Petrenko'
+  phoneNumber:
+    description: "Contact's phoneNumber"
+    type: string
+    example: '+380000000008'
+  email:
+    description: "Contact's email"
+    type: string
+    example: 'maria7@example.com'
+  isFavourite:
+    description: 'Whether is Contact a favourite'
+    type: boolean
+    example: false
+  contactType:
+    description: "Contact's type"
+    type: string
+    enum: ['work', 'home', 'personal']
+    default: 'personal'
+  userId:
+    description: 'Indicates that the contact belongs to a certain user'
+    type: string
+    example: 66675920a28e34b38cc0d738
+  photo:
+    description: "Link to contact's photo"
+    type: string
+    example: <https://res.cloudinary.com/dg0i4l440/image/upload/v1718712384/rvnbajtwsabywtx0wlgu.jpg>
+  createdAt:
+    description: 'Document creation time (generated automatically)'
+    type: string
+    example: '2024-06-10T19:50:56.197+00:00'
+  updatedAt:
+    description: 'Document update time (generated automatically)'
+    type: string
+    example: '2024-06-10T19:50:56.197+00:00'

@@ -1,0 +1,29 @@
+type: object
+required:
+  - name
+  - email
+  - password
+properties:
+  _id:
+    description: 'Backend-generated unique identifier.'
+    type: string
+    example: 66675920a28e34b38cc0d738
+  name:
+    description: "User's name"
+    type: string
+    example: 'Maria Petrenko'
+  email:
+    description: "User's E-mail address"
+    type: string
+    example: 'maria7@example.com'
+  password:
+    description: 'Password'
+    type: string
+  createdAt:
+    description: 'Document creation time (generated automatically)'
+    type: string
+    example: '2024-06-10T19:50:56.197+00:00'
+  updatedAt:
+    description: 'Document update time (generated automatically)'
+    type: string
+    example: '2024-06-10T19:50:56.197+00:00'
